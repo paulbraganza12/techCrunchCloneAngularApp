@@ -1,0 +1,39 @@
+<mat-toolbar class="navbar">
+  <mat-toolbar-row>
+    <button mat-icon-button (click)="sidenav.toggle()" fxShow="true" fxHide.gt-sm>
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span>TechCrunchClone</span>
+    <span class="example-spacer"></span>
+    <div fxShow="true" fxHide.lt-md="true">
+      <!-- The following menu items will be hidden on both SM and XS screen sizes -->
+      <a name="apps" id="apps" class="link active" mat-button routerLink="#" (click)="handleCall('apps')">Apps &nbsp;
+        <mat-icon>phonelink_setup</mat-icon> </a>
+      <a name="gadgets" id="gadgets" class="link" mat-button routerLink="#" (click)="handleCall('gadgets')">Gadgets
+        &nbsp; <mat-icon>devices_other</mat-icon></a>
+      <a name="startup" id="startup" class="link" mat-button routerLink="#" (click)="handleCall('startup')">Startups
+        &nbsp; <mat-icon>business_center</mat-icon></a>
+        <mat-form-field [ngStyle]="{'font-size.px': 12}" mat-list-item class="search-form srch2">
+          <input [(ngModel)]="keyword" (click)="clear($event)" #box name="keyword" (keyup.enter)="search($event)" matInput placeholder="Search Here" type="text">  &nbsp;&nbsp;&nbsp;
+        </mat-form-field>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<mat-sidenav-container class="navbarsm" fxFlexFill>
+  <mat-sidenav #sidenav>
+    <mat-nav-list>
+      <mat-form-field [ngStyle]="{'font-size.px': 12}" mat-list-item class="search-form srch2">
+        <input [(ngModel)]="keyword" (click)="clear($event)"  #box name="keyword" (keyup.enter)="search($event)" matInput placeholder="Search Here" type="text">
+      </mat-form-field>
+      <a (click)="handleCall('apps')" mat-list-item> <a id="apps" name="apps" mat-button class="link active" routerLink="#">Apps
+          &nbsp;<mat-icon>phonelink_setup</mat-icon> </a></a>
+      <a (click)="handleCall('gadgets')" mat-list-item> <a id="gadgets" name="gadgets" mat-button class="link"
+          routerLink="#">Gadgets &nbsp;<mat-icon>devices_other</mat-icon></a></a>
+      <a (click)="handleCall('startup')" mat-list-item>
+        <a id="startup" name="startup" mat-button class="link" routerLink="#">Startups &nbsp;<mat-icon>business_center</mat-icon></a></a>
+
+    </mat-nav-list>
+  </mat-sidenav>
+  <app-post-content [techpost]="posts" [content]="content" [page]="page"></app-post-content>
+</mat-sidenav-container>

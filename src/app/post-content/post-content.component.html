@@ -1,0 +1,26 @@
+<div class="divpost" infinite-scroll [infiniteScrollDistance]="scrollDistance" [infiniteScrollUpDistance]="scrollUpDistance"
+ [infiniteScrollThrottle]="throttle" (scrolled)="onScrollDown()">
+	<div *ngIf="techpost" class="basic-container">
+		<a *ngFor="let post of techpost" [target]="'_blank'" href="{{post.post_links}}">
+			<div class="card card-1">
+				<div id="img">
+					<img class="img" src="{{post.post_img}}"/>
+        </div>
+        <div id="title">
+          <b>{{post.post_title}}</b>
+        </div>
+        <div id="desc">
+          <p>
+              {{post.post_desc}}
+          </p>
+        </div>
+        <div id="auth">
+            {{post.post_auth}}
+        </div>
+        <div id="time">
+            {{post.post_time}}
+        </div>
+      </div>
+    </a>
+</div>
+</div>
