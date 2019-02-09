@@ -9,10 +9,10 @@ import { timeout, catchError } from 'rxjs/operators';
 export class PostService {
 
   constructor(private http: HttpClient) { }
-  private APIUrl1 = 'http://127.0.0.1:5000/';  // URL to web api
-  private APIUrl2 = 'http://127.0.0.1:5000/search';  // URL to web api
-  // private APIUrl1 = 'https://damp-island-46703.herokuapp.com/';  // URL to web api
-  // private APIUrl2 = 'https://damp-island-46703.herokuapp.com/search';  // URL to web api
+  // private APIUrl1 = 'http://127.0.0.1:5000/';  // URL to web api
+  // private APIUrl2 = 'http://127.0.0.1:5000/search';  // URL to web api
+  private APIUrl1 = 'https://damp-island-46703.herokuapp.com/';  // URL to web api
+  private APIUrl2 = 'https://damp-island-46703.herokuapp.com/search';  // URL to web api
 
   getPost(path: string, page: number): Observable<ApiResponse[]> {
     console.log("Initiating API call for " + path)
